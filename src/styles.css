@@ -1,1 +1,32 @@
-/* You can add global styles to this file, and also import other style files */
+/* Estilos globales de la aplicación */
+@import "primeicons/primeicons.css";
+/* Nota: Las importaciones de temas de PrimeNG han sido comentadas porque la estructura ha cambiado en PrimeNG 19 */
+/* Los estilos de PrimeNG 19 ahora se cargan automáticamente a través de los componentes */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-family);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #f8f9fa;
+}
+
+.w-full {
+  width: 100%;
+}
+
+.p-error {
+  color: #e24c4c;
+  font-size: 0.875rem;
+  margin-top: 0.25rem;
+}
+
+/* Utilidades de margen */
+.mr-2 {
+  margin-right: 0.5rem;
+}

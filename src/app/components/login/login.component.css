@@ -1,0 +1,644 @@
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Ocupa exactamente toda la altura de la pantalla */
+  width: 100vw; /* Asegura que ocupe todo el ancho de la ventana */
+  margin: 0; /* Elimina cualquier margen */
+  padding: 0; /* Elimina cualquier padding */
+  background: linear-gradient(135deg, #0a4a8f 0%, #1a6bc7 50%, #2a8be0 100%);
+  position: relative;
+  overflow: hidden;
+  box-sizing: border-box; /* Asegura que padding y border no añadan tamaño */
+}
+
+.login-container::before {
+  content: '';
+  position: absolute;
+  width: 200%; /* Aumentado para cubrir más área */
+  height: 200%;
+  background: radial-gradient(circle, rgba(255,106,76,0.15) 0%, rgba(58,28,64,0) 70%);
+  top: -50%;
+  left: -50%;
+  animation: pulse 15s infinite alternate;
+  z-index: 0; /* Asegura que esté detrás de otros elementos */
+}
+
+/* Añadimos más elementos decorativos al fondo */
+.login-container::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  opacity: 0.3;
+  z-index: 0;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); opacity: 0.5; }
+  50% { transform: scale(1.05); opacity: 0.7; }
+  100% { transform: scale(1); opacity: 0.5; }
+}
+
+.login-card {
+  display: flex;
+  background: rgba(30, 30, 40, 0.7);
+  border-radius: 0; /* Eliminamos el borde redondeado para ocupar toda la pantalla */
+  box-shadow: 0 15px 50px rgba(0, 0, 0, 0.4), 0 0 20px rgba(255, 106, 76, 0.3);
+  width: 100%; /* Ocupa todo el ancho de la pantalla */
+  max-width: none; /* Eliminamos el ancho máximo */
+  height: 100vh; /* Ocupa toda la altura de la pantalla */
+  max-height: none; /* Eliminamos la altura máxima */
+  overflow: hidden;
+  animation: fadeIn 0.8s ease-in-out;
+  backdrop-filter: blur(15px);
+  position: relative;
+  z-index: 1;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.login-left {
+  flex: 1;
+  background: linear-gradient(135deg, #1e1e28 0%, #2d1b38 100%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.login-left::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at 30% 70%, rgba(255, 106, 76, 0.15) 0%, rgba(30, 30, 40, 0) 50%);
+  animation: rotateBg 20s infinite linear;
+}
+
+@keyframes rotateBg {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.welcome-content {
+  z-index: 2;
+  position: relative;
+  text-align: left;
+  max-width: 80%;
+  margin-bottom: 2rem;
+}
+
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-15px); }
+  100% { transform: translateY(0px); }
+}
+
+.welcome-title {
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  letter-spacing: 1px;
+  color: white;
+}
+
+@keyframes glow {
+  0% { box-shadow: 0 0 50px rgba(255, 106, 76, 0.5), inset 0 0 30px rgba(255, 255, 255, 0.2); }
+  100% { box-shadow: 0 0 70px rgba(255, 106, 76, 0.7), inset 0 0 40px rgba(255, 255, 255, 0.3); }
+}
+
+.planet::before {
+  content: '';
+  position: absolute;
+  top: 20%;
+  left: 0;
+  width: 100%;
+  height: 15%;
+  background: rgba(255, 255, 255, 0.1);
+  transform: rotate(-15deg);
+}
+
+.planet::after {
+  content: '';
+  position: absolute;
+  top: 60%;
+  left: -10%;
+  width: 120%;
+  height: 10%;
+  background: rgba(0, 0, 0, 0.2);
+  transform: rotate(-15deg);
+}
+
+.welcome-subtitle {
+  font-size: 1.5rem;
+  font-weight: 500;
+  margin-bottom: 1.5rem;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+@keyframes twinkle {
+  0% { opacity: 0.3; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.5); }
+  100% { opacity: 0.3; transform: scale(1); }
+}
+
+.welcome-text {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+/* Añadimos más estrellas para un efecto más rico */
+.login-left::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-image: radial-gradient(white 1px, transparent 1px);
+  background-size: 50px 50px;
+  opacity: 0.1;
+  animation: moveBg 60s linear infinite;
+}
+
+@keyframes moveBg {
+  0% { background-position: 0 0; }
+  100% { background-position: 100px 100px; }
+}
+
+.circles {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.circle {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.circle-1 {
+  width: 300px;
+  height: 300px;
+  bottom: -150px;
+  right: -100px;
+}
+
+@keyframes textGlow {
+  0% { text-shadow: 0 0 10px rgba(255, 106, 76, 0.7); }
+  100% { text-shadow: 0 0 20px rgba(255, 106, 76, 0.9), 0 0 30px rgba(255, 106, 76, 0.5); }
+}
+
+.login-right {
+  flex: 1;
+  padding: 3rem;
+  background: linear-gradient(135deg, rgba(30, 30, 40, 0.8) 0%, rgba(58, 28, 64, 0.9) 100%);
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.form-title {
+  color: white;
+  font-size: 2.2rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  text-align: center;
+  animation: fadeIn 0.6s ease-out both;
+  width: 100%;
+}
+
+.form-subtitle {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 1rem;
+  text-align: center;
+  margin-bottom: 2.5rem;
+  animation: fadeIn 0.6s ease-out 0.2s both;
+  width: 100%;
+}
+
+.remember-me {
+  margin: 1rem 0 0 0;
+  animation: slideInLeft 0.6s ease-out 0.5s both;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+:host ::ng-deep .p-checkbox .p-checkbox-box {
+  background-color: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  transition: all 0.3s ease;
+  width: 20px;
+  height: 20px;
+  border-radius: 4px;
+}
+
+:host ::ng-deep .p-checkbox:hover .p-checkbox-box {
+  border-color: #ff6a4c;
+  box-shadow: 0 0 0 2px rgba(255, 106, 76, 0.2);
+  transform: scale(1.05);
+}
+
+:host ::ng-deep .p-checkbox .p-checkbox-box.p-highlight {
+  background-color: #ff6a4c;
+  border-color: #ff6a4c;
+}
+
+:host ::ng-deep .p-checkbox-label {
+  color: rgba(255, 255, 255, 0.8);
+  margin-left: 0.5rem;
+  font-size: 0.9rem;
+}
+
+.login-right::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(45deg, transparent 49%, rgba(255, 106, 76, 0.1) 50%, transparent 51%);
+  background-size: 20px 20px;
+  opacity: 0.3;
+  z-index: 0;
+}
+
+.login-form {
+  position: relative;
+  z-index: 1;
+}
+
+.login-form {
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.login-form .form-field {
+  margin-bottom: 2rem;
+  position: relative;
+  z-index: 2;
+  width: 100%;
+}
+
+.login-form input {
+  background-color: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: white;
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  width: 100%;
+  height: 48px;
+  font-size: 1rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.login-form input::placeholder {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.login-form label {
+  color: rgba(255, 255, 255, 0.8);
+  margin-bottom: 0.5rem;
+  display: block;
+}
+
+.form-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-top: 3rem;
+  width: 100%;
+}
+
+.separator {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 0.9rem;
+  margin: 0.5rem 0;
+}
+
+.separator::before,
+.separator::after {
+  content: '';
+  flex: 1;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.separator::before {
+  margin-right: 0.5rem;
+}
+
+.separator::after {
+  margin-left: 0.5rem;
+}
+
+.btn {
+  padding: 0.75rem 1.5rem;
+  border-radius: 4px;
+  border: none;
+  cursor: pointer;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.btn-primary {
+  background-color: #ff6a4c;
+  color: white;
+}
+
+.btn-outline {
+  background-color: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: white;
+}
+
+.forgot-password {
+  text-align: center;
+  margin-top: 2rem;
+  animation: fadeIn 0.5s ease-out 1s both;
+}
+
+.forgot-link {
+  color: rgba(255, 255, 255, 0.6);
+  text-decoration: none;
+  font-size: 0.875rem;
+  transition: all 0.3s ease;
+  padding: 0.5rem;
+  border-radius: 4px;
+}
+
+.forgot-password a:hover, .no-account a:hover {
+  color: #ff6a4c;
+  text-shadow: 0 0 8px rgba(255, 106, 76, 0.5);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.no-account {
+  text-align: center;
+  margin-top: 1.5rem;
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 0.875rem;
+  animation: fadeIn 0.5s ease-out 1.2s both;
+}
+
+/* Animaciones */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.form-field:nth-child(1) {
+  animation: slideInLeft 0.6s ease-out 0.2s both;
+}
+
+.form-field:nth-child(2) {
+  animation: slideInLeft 0.6s ease-out 0.4s both;
+}
+
+.form-actions {
+  animation: slideInLeft 0.6s ease-out 0.6s both;
+}
+
+.login-card {
+  animation: scaleIn 0.8s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+}
+
+:host ::ng-deep .p-float-label input:focus ~ label,
+:host ::ng-deep .p-float-label input.p-filled ~ label,
+:host ::ng-deep .p-float-label textarea:focus ~ label,
+:host ::ng-deep .p-float-label textarea.p-filled ~ label,
+:host ::ng-deep .p-float-label .p-inputwrapper-focus ~ label,
+:host ::ng-deep .p-float-label .p-inputwrapper-filled ~ label {
+  top: -0.75rem;
+  font-size: 12px;
+  color: #ff6a4c;
+  transition: all 0.3s ease;
+  font-weight: 600;
+  margin-left: 0.5rem;
+  background-color: rgba(30, 30, 40, 0.8);
+  padding: 0 0.5rem;
+  border-radius: 4px;
+}
+
+/* Estilos para PrimeNG */
+:host ::ng-deep .p-inputtext {
+  background-color: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: white;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(5px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  height: 48px;
+  border-radius: 8px;
+  width: 100%;
+  font-size: 1rem;
+}
+
+:host ::ng-deep .p-inputtext:enabled:focus {
+  box-shadow: 0 0 0 2px rgba(255, 106, 76, 0.2);
+  border-color: #ff6a4c;
+  transform: translateY(-2px);
+}
+
+:host ::ng-deep .p-password {
+  width: 100%;
+  margin-bottom: 0.5rem;
+}
+
+:host ::ng-deep .p-password input {
+  background-color: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: white;
+  transition: all 0.3s ease;
+  height: 48px;
+  border-radius: 8px;
+  width: 100%;
+  font-size: 1rem;
+}
+
+:host ::ng-deep .p-button {
+  background: linear-gradient(135deg, #ff6a4c 0%, #e24c4c 100%);
+  border-color: #ff6a4c;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  border-radius: 8px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  height: 48px;
+  box-shadow: 0 4px 12px rgba(226, 76, 76, 0.3);
+  width: 100%;
+  margin-bottom: 1rem;
+}
+
+:host ::ng-deep .p-button:hover {
+  background: linear-gradient(135deg, #ff7a5c 0%, #ff4a2c 100%);
+  box-shadow: 0 6px 20px rgba(255, 106, 76, 0.5);
+  transform: translateY(-2px);
+  transition: all 0.3s ease;
+}
+
+:host ::ng-deep .p-button:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 8px rgba(255, 106, 76, 0.4);
+}
+
+:host ::ng-deep .p-button::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255,255,255,0.3) 0%, rgba(255,255,255,0) 70%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+:host ::ng-deep .p-button:hover::after {
+  opacity: 1;
+}
+
+:host ::ng-deep .p-button.p-button-outlined {
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: white;
+  box-shadow: none;
+  width: 100%;
+}
+
+:host ::ng-deep .p-button.p-button-outlined:hover {
+  border-color: #ff6a4c;
+  background: rgba(255, 106, 76, 0.1);
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(255, 106, 76, 0.2);
+}
+
+:host ::ng-deep .p-float-label label {
+  color: rgba(255, 255, 255, 0.8);
+  margin-left: 0.5rem;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+}
+
+:host ::ng-deep .p-password-panel {
+  background-color: #1e1e28;
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  margin-top: 0.5rem;
+}
+
+/* Corregir alineación de iconos */
+:host ::ng-deep .p-password {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+:host ::ng-deep .p-password .p-password-toggle {
+  position: absolute;
+  right: 0.75rem;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 2;
+  cursor: pointer;
+}
+
+:host ::ng-deep .p-password .p-password-input {
+  width: 100%;
+  padding-right: 2.5rem;
+  padding-left: 2.5rem;
+}
+
+:host ::ng-deep .p-input-icon-left > i {
+  position: absolute;
+  left: 0.75rem;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 1;
+}
+
+:host ::ng-deep .p-float-label {
+  position: relative;
+  display: block;
+}
+
+:host ::ng-deep .p-float-label label {
+  position: absolute;
+  pointer-events: none;
+  top: 50%;
+  left: 2.5rem;
+  margin-top: -0.5rem;
+  transition: 0.3s ease all;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+:host ::ng-deep .p-float-label input:focus ~ label,
+:host ::ng-deep .p-float-label input.p-filled ~ label,
+:host ::ng-deep .p-float-label .p-inputwrapper-focus ~ label,
+:host ::ng-deep .p-float-label .p-inputwrapper-filled ~ label {
+  top: 0.25rem;
+  font-size: 0.75rem;
+  left: 0.75rem;
+}

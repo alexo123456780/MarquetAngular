@@ -1,0 +1,73 @@
+<div class="dashboard-container">
+  <!-- Sidebar / Menú lateral -->
+  <div class="sidebar">
+    <div class="logo-container">
+      <h2>Angular CRUD</h2>
+    </div>
+    <div class="menu-container">
+      <p-menu [model]="menuItems" styleClass="w-full"></p-menu>
+    </div>
+  </div>
+  
+  <!-- Contenido principal -->
+  <div class="main-content">
+    <!-- Header superior -->
+    <div class="header">
+      <div class="header-left">
+        <h1>Dashboard</h1>
+      </div>
+      <div class="header-right">
+        <p-avatar [label]="user?.nombre?.charAt(0) || 'U'" styleClass="mr-2" size="large" shape="circle"></p-avatar>
+        <span class="user-name">{{ user?.nombre || 'Usuario' }}</span>
+      </div>
+    </div>
+    
+    <!-- Tarjetas de resumen -->
+    <div class="dashboard-cards">
+      <div class="card">
+        <div class="card-icon products">
+          <i class="pi pi-shopping-bag"></i>
+        </div>
+        <div class="card-content">
+          <h3>Productos</h3>
+          <p>Gestiona tu inventario</p>
+        </div>
+      </div>
+      
+      <div class="card">
+        <div class="card-icon clients">
+          <i class="pi pi-users"></i>
+        </div>
+        <div class="card-content">
+          <h3>Clientes</h3>
+          <p>Administra tus clientes</p>
+        </div>
+      </div>
+      
+      <div class="card">
+        <div class="card-icon sales">
+          <i class="pi pi-chart-line"></i>
+        </div>
+        <div class="card-content">
+          <h3>Ventas</h3>
+          <p>Revisa tus estadísticas</p>
+        </div>
+      </div>
+      
+      <div class="card">
+        <div class="card-icon settings">
+          <i class="pi pi-cog"></i>
+        </div>
+        <div class="card-content">
+          <h3>Configuración</h3>
+          <p>Personaliza tu sistema</p>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Área de contenido principal -->
+    <div class="content-area">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>
