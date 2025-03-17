@@ -40,7 +40,6 @@ src/app/
 
 ## Convenciones de Nomenclatura
 
-- Todas las variables, funciones y clases están nombradas en español.
 - Se utiliza camelCase para variables y funciones.
 - Se utiliza PascalCase para clases e interfaces.
 - Los nombres deben ser descriptivos y evitar abreviaturas.
